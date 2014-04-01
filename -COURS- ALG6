@@ -1,0 +1,52 @@
+// Algorithme de cours ALG6 en Java (origine langage Texas Instrument)
+//
+// Todo list: -Condition vérifiée mais non éxécution de la boucle
+
+
+package gdr.alg6;
+
+import java.util.Scanner;
+
+public class 
+
+{
+	private static Scanner sc;
+
+	public static void main (String[] args)
+	{
+			disp("Starting");
+			sc = new Scanner(System.in);
+			disp("Entrez p:");
+			String str = sc.nextLine();
+			disp("p="+str);
+			int w = Integer.decode(str);
+			double z = 10;
+			double p;
+			p=calcexponent(z,-w);
+			disp("10^-p="+p+"\n");
+			double u;
+			u=0.25;
+			int n = 0;
+			while(1/2-u>=p){
+				u=u*u+0.25;
+				n++;
+				disp("n="+n);
+				disp("u="+u);
+			}
+			disp("Traitement terminé:  n="+n+" 10^-p="+p+" u="+u);
+	}
+	
+	public static double calcexponent(double base, int exponent) {
+	    if (exponent > 0) {
+	        return (base * calcexponent(base, exponent - 1));
+	    }else if(exponent < 0){
+	        return (1/calcexponent(base, -exponent));
+	    } else {
+	        return 1;
+	    }
+	}
+	
+	public static void disp(String i) {
+		System.out.println(i);
+	}
+}
